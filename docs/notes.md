@@ -10,3 +10,8 @@ A bolt project is a directory that contains a `bolt-project.yaml` file. To initi
 ```shell
 bolt project init my_project_name 
 ```
+
+In order for Bolt to use plans, this directory needs to adhere a specific folder structure, for example:
+
+`[Bolt project root]/modules/mongodb/plans`
+`[Bolt project root]/modules/mongodb/files`
