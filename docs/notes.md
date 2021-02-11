@@ -13,5 +13,22 @@ bolt project init my_project_name
 
 In order for Bolt to use plans, this directory needs to adhere a specific folder structure, for example:
 
-`[Bolt project root]/modules/mongodb/plans`
-`[Bolt project root]/modules/mongodb/files`
+- `[Bolt project root]/modules/mongodb/plans`
+- `[Bolt project root]/modules/mongodb/files`
+
+## Running a command on a remote machine with bolt
+To run a command on a remote machine we use the `bolt command run` command
+
+```shell
+bolt command run whoami -t 127.0.0.1:2000 -u root -p root --no-host-key-check
+```
+
+Output:
+```
+  STDOUT:
+    root
+Successful on 1 target: 127.0.0.1
+Ran on 1 target in 0.35 sec
+```
+
+The -t parameter defines the target machine to run the command on, the -u option the user to login with and the -p option the password.
