@@ -32,3 +32,4 @@ Ran on 1 target in 0.35 sec
 ```
 
 The -t parameter defines the target machine to run the command on, the -u option the user to login with and the -p option the password.
+The --no-host-key-check option is added to turn of certificate authentication
