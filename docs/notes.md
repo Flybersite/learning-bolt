@@ -35,3 +35,34 @@ The -t parameter defines the target machine to run the command on, the -u option
 The --no-host-key-check option is added to turn of certificate authentication
 
 :bulb: *You can run this command on multiple machines by specifying a comma seperated list with the -t option*
+
+# Inventory file
+By creating an `inventory.yaml` in your project directory, you can create an inventory of all the nodes you want to interact with and provide authentication and node details.
+
+Example inventory file:
+```yaml
+groups:
+  - name: dns-servers
+    targets:
+      - name: dns1
+        uri: 192.168.0.20
+      - name: dns2
+        uri: 192.168.0.21
+    config:
+      transport: ssh
+      ssh:
+        user: root
+        password: root
+        host-key-check: false
+```
+
+Then if you want to run a command on an individual machine you specify the -t option with the name of the target. 
+```
+bolt command run ... -t dns1
+```
+
+If you want to run this command on all the nodes defined in the targets section you can use the command
+
+```
+bolt command run ... -t all
+```
