@@ -66,3 +66,8 @@ If you want to run this command on all the nodes defined in the targets section 
 ```
 bolt command run ... -t all
 ```
+
+# Bolt plans
+A bolt plan is a file that ties commands, scripts and tasks together so you can create workflows. These plans can be either written in YAML or the Puppet language.
+
+A plan needs to be created in `[Bolt project root]/modules/[module-name]/plans/install.yaml` 
