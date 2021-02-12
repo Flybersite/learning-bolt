@@ -97,3 +97,15 @@ steps:
 
 For each step you want to take you need to define a step. In this example we make use of the package task which installs a package on target. The `targets` parameter defines on which nodes it needs to be run.
 The `parameters` block define the parameters that are passed to the `package` task. You can define a description as well to describe what the step is doing
+
+## Running a script
+You can store your scripts in in `[Bolt project root]/[module-name]/files` and then refer them in your YAML by adding a script step.
+
+Say that we have a script named run_hello.sh in our mongodb module, we can refer to it by using the name of the module and then the name of the script. (We don't need to specify the absolute path to the files directory)
+
+```yaml
+steps:
+  - name: run_script
+    script: mongodb/run_hello.sh'
+    targets: $targets
+```
