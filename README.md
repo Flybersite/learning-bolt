@@ -1,2 +1,2 @@
 # learning-bolt
-This repository intended to store my notes while learning Bolt
+This repository is intended to store my notes while learning Bolt
