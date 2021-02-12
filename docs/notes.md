@@ -71,3 +71,29 @@ bolt command run ... -t all
 A bolt plan is a file that ties commands, scripts and tasks together so you can create workflows. These plans can be either written in YAML or the Puppet language.
 
 A plan needs to be created in `[Bolt project root]/modules/[module-name]/plans/install.yaml` 
+
+The first part of the `install.yaml` file, you can define parameters that can be passed to the plan. In our example we have the following:
+
+```yaml
+parameters:
+  targets:
+    type: TargetSpec
+```
+
+In this parameters block, we pass one parameter called targets with the type TargetSpec. This parameter is defined so that when we run the plan, a list of targets can be passed with the -t option (as shown before).
+
+Next up we have our step blocks which outlines the workflow the Bolt plan will follow:
+
+```yaml
+steps:
+  - name: install_mongodb
+    task: package
+    targets: $targets
+    parameters:
+      action: install
+      name: mongodb
+    description: "Install mongodb"
+```
+
+For each step you want to take you need to define a step. In this example we make use of the package task which installs a package on target. The `targets` parameter defines on which nodes it needs to be run.
+The `parameters` block define the parameters that are passed to the `package` task. You can define a description as well to describe what the step is doing
