@@ -109,3 +109,17 @@ steps:
     script: mongodb/run_hello.sh'
     targets: $targets
 ```
+## Copying files
+
+In order to copy files from your machine to the nodes, you can use a copy task:
+
+```yaml
+steps:
+  - name: copy_file
+    upload: /home/user/test.md
+    destination: /temp/test.md
+    targets: $targets
+    description: "Copy file"
+```
+
+In the upload parameter you provide the source file on your machine. In the destination you specify the path to which it should be copied on the target nodes.
